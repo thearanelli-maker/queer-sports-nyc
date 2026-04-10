@@ -382,7 +382,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/athenakekesnyc/",
     "queer": true,
-    "notes": "Brooklyn \u2014 Clinton Hill"
+    "notes": "Brooklyn — Clinton Hill"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/wilkasnyc/",
     "queer": true,
-    "notes": "Manhattan \u2014 LES"
+    "notes": "Manhattan — LES"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/blazerssportsbar/",
     "queer": true,
-    "notes": "Brooklyn \u2014 Williamsburg"
+    "notes": "Brooklyn — Williamsburg"
   },
   {
     "id": 38,
@@ -416,5 +416,16 @@
     "instagram": "https://www.instagram.com/womxnsportsrally/",
     "queer": true,
     "notes": ""
+  },
+  {
+    "name": "Tranfl nyc",
+    "sport": "Football / Rugby",
+    "type": "Club",
+    "cost": "Free",
+    "days": "Varies",
+    "instagram": "tranfl.nyc",
+    "queer": true,
+    "notes": "Trans-focused football club",
+    "id": 39
   }
 ]
