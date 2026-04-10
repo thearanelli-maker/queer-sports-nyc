@@ -39,7 +39,7 @@
     "type": "League",
     "cost": "$",
     "days": "Dates vary",
-    "instagram": "",
+    "instagram": "https://www.instagram.com/nycfootyflipleague/",
     "queer": false,
     "notes": "Female majority, not explicitly queer"
   },
@@ -78,12 +78,12 @@
   },
   {
     "id": 8,
-    "name": "NYUrban",
+    "name": "NY Urban",
     "sport": "Basketball",
     "type": "League",
     "cost": "$",
-    "days": "",
-    "instagram": "",
+    "days": "Dates vary",
+    "instagram": "https://www.instagram.com/nyurban/",
     "queer": false,
     "notes": "Not explicitly queer"
   },
@@ -138,8 +138,8 @@
     "type": "League",
     "cost": "$",
     "days": "Dates vary",
-    "instagram": "",
-    "queer": false,
+    "instagram": "https://www.instagram.com/bigapplerecsports/",
+    "queer": true,
     "notes": ""
   },
   {
@@ -232,12 +232,12 @@
   },
   {
     "id": 22,
-    "name": "NYUrban Volleyball",
+    "name": "NY Urban Volleyball",
     "sport": "Volleyball",
     "type": "League",
     "cost": "$",
-    "days": "",
-    "instagram": "",
+    "days": "Dates vary",
+    "instagram": "https://www.instagram.com/nyurban/",
     "queer": false,
     "notes": "Not explicitly queer"
   },
@@ -247,7 +247,7 @@
     "sport": "Volleyball",
     "type": "Club",
     "cost": "$",
-    "days": "",
+    "days": "Dates vary",
     "instagram": "https://www.instagram.com/sapphix.hits/",
     "queer": true,
     "notes": ""
@@ -382,7 +382,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/athenakekesnyc/",
     "queer": true,
-    "notes": "Brooklyn — Clinton Hill"
+    "notes": "Brooklyn \u2014 Clinton Hill"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/wilkasnyc/",
     "queer": true,
-    "notes": "Manhattan — LES"
+    "notes": "Manhattan \u2014 LES"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/blazerssportsbar/",
     "queer": true,
-    "notes": "Brooklyn — Williamsburg"
+    "notes": "Brooklyn \u2014 Williamsburg"
   },
   {
     "id": 38,
