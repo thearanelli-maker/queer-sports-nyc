@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Queer Girl Sports NYC — Directory of inclusive sports clubs, leagues, and bars</title>
+  <meta name="description" content="Find queer and women-focused sports clubs, leagues, and bars in New York City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Teko:wght@600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black:      #0f0f0f;
+      --white:      #ffffff;
+      --blush:      #F8DFDB;
+      --pink:       #ff3fa4;
+      --red:        #e8001c;
+      --muted:      rgba(255,255,255,0.4);
+      --border:     rgba(255,255,255,0.09);
+      --card-hover: #191919;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+
+    #headerCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    header > *:not(#headerCanvas) {
+      position: relative;
+      z-index: 1;
+    }
+
+
+    @keyframes titlePop {
+      0%   { opacity: 0; transform: scale(0.85) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 2.5rem 1.25rem 2rem;
+      text-align: center;
+      border-bottom: none;
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tagline {
+      font-family: 'Teko', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 10vw, 4.2rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1c0a08;
+      margin-bottom: 0.1rem;
+      line-height: 0.95;
+      text-shadow:
+        1px 1px 0 rgba(255,248,245,0.95),
+        2px 2px 0 rgba(255,255,255,0.8),
+        3px 3px 0 rgba(200,150,140,0.55),
+        4px 4px 0 rgba(180,120,110,0.3),
+        5px 5px 8px rgba(0,0,0,0.12);
+      animation: titlePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    .subline {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: #1c0a08;
+      opacity: 0.65;
+      text-transform: uppercase;
+      line-height: 2.2;
+      margin-bottom: 1.3rem;
+      animation: titlePop 0.6s 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    .ig-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.4rem;
+      background: transparent;
+      border: 1.5px solid rgba(28,10,8,0.35);
+      color: #1c0a08;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+      animation: titlePop 0.6s 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ig-link:active { background: rgba(0,0,0,0.08); color: var(--black); }
+
+    .header-inner { display: flex; flex-direction: column; align-items: flex-start; }
+
+
+        
+    .sport-nav-wrap {
+      padding: 1.4rem 1.25rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .sport-nav-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .sport-nav {
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--border);
+      /* hide scrollbar but keep scrollable */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .sport-nav::-webkit-scrollbar { display: none; }
+
+    .sport-pill {
+      flex-shrink: 0;
+      background: rgba(248,223,219,0.07);
+      border: 1.5px solid rgba(248,223,219,0.18);
+      color: var(--blush);
+      padding: 0.5rem 1.1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.15s;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sport-pill:active,
+    .sport-pill.flash {
+      background: transparent;
+      border-color: var(--blush);
+      color: var(--black);
+    }
+
+    /* ── FADE TRANSITION ── */
+    .drip {
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, #F8DFDB 0%, #0f0f0f 100%);
+      display: block;
+    }
+
+        /* ── MAIN ── */
+    main {
+      padding: 2rem 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── SPORT SECTIONS ── */
+    .sport-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .sport-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sport-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 8vw, 3rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .sport-count {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sport-divider {
+      height: 2px;
+      background: transparent;
+      opacity: 0.3;
+      margin-bottom: 0.85rem;
+      border-radius: 1px;
+    }
+
+    /* ── CLUB LIST — stacked on mobile ── */
+    .clubs-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .club-card {
+      background: var(--black);
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      position: relative;
+      transition: background 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .club-card:active { background: var(--card-hover); }
+
+    .club-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.35;
+      text-decoration: none;
+      display: block;
+      padding-right: 1.8rem;
+    }
+
+    .ig-arrow {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      color: rgba(255,255,255,0.18);
+      font-size: 1rem;
+      text-decoration: none;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .club-card:active .ig-arrow { color: var(--blush); }
+
+    /* ── TAGS ── */
+    .club-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+
+    .tag-club      { background: rgba(255, 63,164,0.18); color: #ff7ec8; }
+    .tag-league    { background: rgba(232,  0, 28,0.18); color: #ff6b6b; }
+    .tag-seasonal  { background: rgba(181,  0,106,0.18); color: #e87bc4; }
+    .tag-bar       { background: rgba(112,  0,196,0.18); color: #b87de8; }
+    .tag-classes   { background: rgba(  0, 68,204,0.18); color: #7aaeff; }
+    .tag-opengym   { background: rgba(  0,105, 74,0.18); color: #5dd4a0; }
+    .tag-other     { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.45); }
+
+    .tag-free  { background: rgba(248,223,219,0.15); color: var(--blush); }
+    .tag-paid  { background: rgba(255,243,192,0.12); color: #d4b96a; }
+
+    .tag-notqueer {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.3);
+      font-size: 0.58rem;
+      border-radius: 4px;
+    }
+
+    .club-days  { font-size: 0.78rem; color: var(--muted); }
+    .club-notes { font-size: 0.7rem;  color: rgba(255,255,255,0.28); }
+
+    /* ── SUBMIT ── */
+    .submit-section {
+      margin-top: 1rem;
+      padding: 2rem 1.25rem;
+      border: 1.5px dashed rgba(248,223,219,0.25);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .submit-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.5rem, 6vw, 2rem);
+      letter-spacing: 0.06em;
+      color: var(--blush);
+      margin-bottom: 0.5rem;
+    }
+
+    .submit-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin: 0 auto 1.3rem;
+      line-height: 1.65;
+      max-width: 340px;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--blush);
+      border: none;
+      color: #0f0f0f;
+      padding: 0.75rem 1.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      -webkit-tap-highlight-color: transparent;
+      transition: opacity 0.2s;
+    }
+    .submit-btn:active { opacity: 0.8; }
+    .submit-btn:active { background: var(--blush); color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.25rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+
+    /* ── DESKTOP: wider cards grid ── */
+    @media (min-width: 640px) {
+      main { padding: 2.5rem 2rem; }
+      .sport-nav-wrap { padding: 2rem 2rem 0; }
+      header { padding: 3rem 2rem 2.5rem; }
+
+      .clubs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        flex-direction: unset;
+      }
+
+      .sport-pill { font-size: 1.2rem; }
+
+      .club-card:hover { background: var(--card-hover); }
+      .club-card:hover .ig-arrow { color: var(--pink); }
+      .club-card:hover .club-name { color: var(--blush); }
+    }
+
+    /* ── SPLASH SCREEN ── */
+    #splash {
+      position: fixed;
+      inset: 0;
+      background: #F8DFDB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    #splash img {
+      width: 220px;
+      max-width: 60vw;
+      animation: splashPulse 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes splashPulse {
+      from { transform: scale(0.96); opacity: 0.85; }
+      to   { transform: scale(1.02); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="splash">
+  <img src="logo.svg" alt="Queer Girl Sports NYC" />
+</div>
+
+<header>
+  <canvas id="headerCanvas"></canvas>
+  <p class="tagline">NYC Sports for<br>Queer Women</p>
+  <p class="subline">Find your team.<br>WTNB+ clubs, leagues, and bars</p>
+  <a class="ig-link" href="https://www.instagram.com/queergirlsports.nyc/" target="_blank" rel="noopener">
+    ↗ Follow on Instagram
+  </a>
+</header>
+<div class="drip"></div>
+<div class="sport-nav-wrap">
+  <p class="sport-nav-label">Jump to sport</p>
+  <nav class="sport-nav" id="sportNav"></nav>
+</div>
+
+<main>
+  <div id="content"></div>
+  <div class="submit-section">
+    <h2 class="submit-title">Know a club we're missing?</h2>
+    <p class="submit-desc">Play in a queer or female-focused sports community in NYC? DM us the details and we'll add it!</p>
+    <a class="submit-btn" href="https://www.instagram.com/queergirlsports.nyc/" target="_blank" rel="noopener">↗ Submit via Instagram</a>
+  </div>
+</main>
+
+<footer>
+  <p>© Queer Girl Sports NYC · <a href="https://www.instagram.com/queergirlsports.nyc/">@queergirlsports.nyc</a></p>
+</footer>
+
+<script>
+
+
+  // ── SPLASH ──
+  const splash = document.getElementById('splash');
+  const minShow = 800; // ms minimum splash time
+  const start = Date.now();
+  window.addEventListener('load', () => {
+    const elapsed = Date.now() - start;
+    const delay = Math.max(0, minShow - elapsed);
+    setTimeout(() => splash.classList.add('hidden'), delay);
+  });
+
+  // ── ANIMATED HEADER CANVAS: TIE DYE ──
+  (function() {
+    const canvas = document.getElementById('headerCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, blobs;
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      if (!blobs) init();
+    }
+
+    function init() {
+      blobs = [];
+      for (let i = 0; i < 9; i++) {
+        blobs.push({
+          x:     Math.random() * W,
+          y:     Math.random() * H,
+          r:     120 + Math.random() * 180,
+          vx:    (Math.random() - 0.5) * 0.6,
+          vy:    (Math.random() - 0.5) * 0.6,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.004 + Math.random() * 0.004,
+          // alternate white and a slightly warm white
+          white: Math.random() > 0.35,
+        });
+      }
+    }
+
+    function draw(t) {
+      // blush base
+      ctx.fillStyle = '#F8DFDB';
+      ctx.fillRect(0, 0, W, H);
+
+      blobs.forEach(b => {
+        // drift
+        b.x += b.vx + Math.sin(t * b.speed + b.phase) * 0.5;
+        b.y += b.vy + Math.cos(t * b.speed + b.phase * 1.4) * 0.4;
+        // wrap
+        if (b.x < -b.r) b.x = W + b.r;
+        if (b.x > W + b.r) b.x = -b.r;
+        if (b.y < -b.r) b.y = H + b.r;
+        if (b.y > H + b.r) b.y = -b.r;
+
+        // pulsing radius
+        const pulse = b.r + Math.sin(t * b.speed * 1.7 + b.phase) * b.r * 0.18;
+
+        const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, pulse);
+        if (b.white) {
+          g.addColorStop(0,    'rgba(255,255,255,0.75)');
+          g.addColorStop(0.35, 'rgba(255,255,255,0.4)');
+          g.addColorStop(0.7,  'rgba(255,255,255,0.1)');
+          g.addColorStop(1,    'rgba(255,255,255,0)');
+        } else {
+          // soft darker blush pocket for contrast/depth
+          g.addColorStop(0,    'rgba(220,160,150,0.45)');
+          g.addColorStop(0.4,  'rgba(220,160,150,0.15)');
+          g.addColorStop(1,    'rgba(220,160,150,0)');
+        }
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, pulse, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(draw);
+  })();
+
+  const clubs = [{"id":1,"name":"Footy With Friends","sport":"Soccer","type":"Club","cost":"Free","days":"Tues / Thurs","instagram":"https://www.instagram.com/footy.withfriends/","queer":true,"notes":""},{"id":2,"name":"Ladies Village Soccer","sport":"Soccer","type":"Club","cost":"Free","days":"Sat","instagram":"https://www.instagram.com/ladiesvillagesoccer/","queer":true,"notes":""},{"id":3,"name":"Queer Soccer League","sport":"Soccer","type":"Club","cost":"$","days":"Fri","instagram":"https://www.instagram.com/queersoccerleague/","queer":true,"notes":""},{"id":4,"name":"NYC Footy Flip League","sport":"Soccer","type":"League","cost":"$","days":"Dates vary","instagram":"","queer":false,"notes":"Female majority, not explicitly queer"},{"id":5,"name":"Fruit Hoops NYC","sport":"Basketball","type":"Club","cost":"Free","days":"Sun","instagram":"https://www.instagram.com/froothoopsnyc/","queer":true,"notes":""},{"id":6,"name":"Pride Basketball","sport":"Basketball","type":"League","cost":"$","days":"Sun","instagram":"https://www.instagram.com/pridebasketballleaguenyc/","queer":true,"notes":""},{"id":7,"name":"Basketdolls NYC","sport":"Basketball","type":"Club","cost":"Free","days":"Sat / Sun","instagram":"https://www.instagram.com/basketdolls/","queer":true,"notes":"Trans+"},{"id":8,"name":"NYUrban","sport":"Basketball","type":"League","cost":"$","days":"","instagram":"","queer":false,"notes":"Not explicitly queer"},{"id":9,"name":"BCPC","sport":"Basketball","type":"Open Gym","cost":"Free","days":"Mon / Sat","instagram":"","queer":true,"notes":""},{"id":10,"name":"Dyke Running NYC","sport":"Running","type":"Club","cost":"Free","days":"Mon / Wed / Fri","instagram":"https://www.instagram.com/dykerunnyc/","queer":true,"notes":""},{"id":11,"name":"Queer Feet NYC","sport":"Running","type":"Club","cost":"Free","days":"Wed / Sat","instagram":"https://www.instagram.com/queerfeetnyc/","queer":true,"notes":""},{"id":12,"name":"Queer NYC Pickleball","sport":"Tennis / Pickleball","type":"Seasonal Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/queernycpickleball/","queer":true,"notes":""},{"id":13,"name":"Big Apple Rec Sports","sport":"Tennis / Pickleball","type":"League","cost":"$","days":"Dates vary","instagram":"","queer":false,"notes":""},{"id":14,"name":"Queer Tennis","sport":"Tennis / Pickleball","type":"Seasonal Club","cost":"Varies","days":"Dates vary","instagram":"https://www.instagram.com/queer4tennis/","queer":true,"notes":""},{"id":15,"name":"Queer Joy Rides","sport":"Biking","type":"Club","cost":"Free","days":"Tue","instagram":"https://www.instagram.com/queer.joyride/","queer":true,"notes":""},{"id":16,"name":"Nightcap Brooklyn","sport":"Biking","type":"Club","cost":"Free","days":"Mon","instagram":"https://www.instagram.com/nightcap_brooklyn/","queer":true,"notes":""},{"id":17,"name":"Lesbian Bike Clurb","sport":"Biking","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/lesbianbikeclurb","queer":true,"notes":""},{"id":18,"name":"The L League","sport":"Football / Rugby","type":"Seasonal Club","cost":"Free","days":"Mon","instagram":"https://www.instagram.com/thelleaguenyc/","queer":true,"notes":""},{"id":19,"name":"NY Gay Football","sport":"Football / Rugby","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/nygfl_wplus/","queer":true,"notes":""},{"id":20,"name":"Queens Rugby Women","sport":"Football / Rugby","type":"League","cost":"","days":"Tues / Thurs","instagram":"https://www.instagram.com/queensrugbywomens/","queer":false,"notes":"Not explicitly queer"},{"id":21,"name":"Spykes NYC","sport":"Volleyball","type":"Club","cost":"$","days":"Sun","instagram":"https://www.instagram.com/spykesnyc/","queer":true,"notes":""},{"id":22,"name":"NYUrban Volleyball","sport":"Volleyball","type":"League","cost":"$","days":"","instagram":"","queer":false,"notes":"Not explicitly queer"},{"id":23,"name":"Sapphix Hits","sport":"Volleyball","type":"Club","cost":"$","days":"","instagram":"https://www.instagram.com/sapphix.hits/","queer":true,"notes":""},{"id":24,"name":"Queer Pong BK","sport":"Cup Pong & Pool","type":"League","cost":"$","days":"Thurs","instagram":"https://www.instagram.com/queerpongbk/","queer":true,"notes":""},{"id":25,"name":"Queer Pool Hotties","sport":"Cup Pong & Pool","type":"Club","cost":"Free","days":"Monthly","instagram":"https://www.instagram.com/queerpoolhotties/","queer":true,"notes":""},{"id":26,"name":"Frog Wine Bar Queer Pool","sport":"Cup Pong & Pool","type":"Club","cost":"Free","days":"Weds","instagram":"https://www.instagram.com/frogwinebar/","queer":true,"notes":""},{"id":27,"name":"Gotham Roller Derby","sport":"Roller Derby","type":"League","cost":"","days":"Dates vary","instagram":"https://www.instagram.com/gothamderby","queer":true,"notes":""},{"id":28,"name":"Crux Climbing","sport":"Climbing","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/climbcrux/","queer":true,"notes":"LGBTQIA+"},{"id":29,"name":"Queer Archery","sport":"Archery","type":"Club","cost":"Free","days":"Bi-monthly","instagram":"https://www.instagram.com/queerarchery/","queer":true,"notes":"LGBTQIA+"},{"id":30,"name":"BASL Softball","sport":"Softball","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/baslwtnb/","queer":true,"notes":""},{"id":31,"name":"Resting Pitch Face","sport":"Softball","type":"Club","cost":"","days":"","instagram":"https://www.instagram.com/resting_pitchface/","queer":true,"notes":""},{"id":32,"name":"BK Softball Collective","sport":"Softball","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/bksoftballcollective/","queer":true,"notes":""},{"id":33,"name":"Brooklyn Bladers","sport":"Hockey","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/brooklynbladers/","queer":true,"notes":""},{"id":34,"name":"Outbox Gym","sport":"Boxing","type":"Classes","cost":"$","days":"","instagram":"https://www.instagram.com/outboxnyc/","queer":true,"notes":"LGBTQIA women's"},{"id":35,"name":"Athena Keke's","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/athenakekesnyc/","queer":true,"notes":"Brooklyn — Clinton Hill"},{"id":36,"name":"Wilkas","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/wilkasnyc/","queer":true,"notes":"Manhattan — LES"},{"id":37,"name":"Blazers Sports Bar","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/blazerssportsbar/","queer":true,"notes":"Brooklyn — Williamsburg"},{"id":38,"name":"Women's Sports Rally","sport":"Women's Sports Bars","type":"Moving Bar / Watch Parties","cost":"","days":"","instagram":"https://www.instagram.com/womxnsportsrally/","queer":true,"notes":""}];
+
+  function typeTagClass(type) {
+    const t = type.toLowerCase();
+    if (t.includes('seasonal')) return 'tag-seasonal';
+    if (t.includes('club'))     return 'tag-club';
+    if (t.includes('league'))   return 'tag-league';
+    if (t.includes('bar') || t.includes('watch')) return 'tag-bar';
+    if (t.includes('class'))    return 'tag-classes';
+    if (t.includes('gym'))      return 'tag-opengym';
+    return 'tag-other';
+  }
+
+  function buildSportNav() {
+    const sports = [...new Set(clubs.map(c => c.sport))].sort();
+    const nav = document.getElementById('sportNav');
+    sports.forEach(sport => {
+      const btn = document.createElement('button');
+      btn.className = 'sport-pill';
+      btn.textContent = sport;
+      btn.onclick = () => {
+        const id = 'sport-' + sport.replace(/[^a-z0-9]/gi, '-');
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        btn.classList.add('flash');
+        setTimeout(() => btn.classList.remove('flash'), 600);
+      };
+      nav.appendChild(btn);
+    });
+  }
+
+  function render() {
+    const grouped = {};
+    clubs.forEach(c => {
+      if (!grouped[c.sport]) grouped[c.sport] = [];
+      grouped[c.sport].push(c);
+    });
+    const sports = Object.keys(grouped).sort();
+
+    document.getElementById('content').innerHTML = sports.map(sport => {
+      const id = 'sport-' + sport.replace(/[^a-z0-9]/gi, '-');
+      const sportClubs = grouped[sport];
+      return `
+        <section class="sport-section" id="${id}">
+          <div class="sport-header">
+            <h2 class="sport-title">${sport}</h2>
+            <span class="sport-count">${sportClubs.length} listing${sportClubs.length !== 1 ? 's' : ''}</span>
+          </div>
+          <div class="sport-divider"></div>
+          <div class="clubs-grid">
+            ${sportClubs.map(club => `
+              <div class="club-card">
+                ${club.instagram ? `<a class="ig-arrow" href="${club.instagram}" target="_blank" rel="noopener">↗</a>` : ''}
+                ${club.instagram
+                  ? `<a class="club-name" href="${club.instagram}" target="_blank" rel="noopener">${club.name}</a>`
+                  : `<span class="club-name">${club.name}</span>`}
+                <div class="club-meta">
+                  <span class="tag ${typeTagClass(club.type)}">${club.type}</span>
+                  ${club.cost === 'Free' ? `<span class="tag tag-free">Free</span>`
+                    : club.cost === '$'  ? `<span class="tag tag-paid">$$</span>`
+                    : club.cost         ? `<span class="tag tag-other">${club.cost}</span>` : ''}
+                  ${!club.queer ? `<span class="tag tag-notqueer">Not explicitly queer</span>` : ''}
+                </div>
+                ${club.days  ? `<div class="club-days">${club.days}</div>` : ''}
+                ${club.notes ? `<div class="club-notes">${club.notes}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </section>`;
+    }).join('');
+  }
+
+  buildSportNav();
+  render();
+</script>
+</body>
+</html>
