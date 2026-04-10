@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Club — Queer Sports NYC</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, sans-serif; background: #f5f5f5; padding: 20px; }
+  h1 { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #111; }
+  .field { margin-bottom: 14px; }
+  label { display: block; font-size: 12px; color: #666; margin-bottom: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+  input, select, textarea { width: 100%; padding: 10px 12px; font-size: 16px; border: 1px solid #ddd; border-radius: 10px; background: white; color: #111; appearance: none; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: #999; }
+  textarea { resize: none; height: 70px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .check { display: flex; align-items: center; gap: 8px; }
+  .check input { width: auto; }
+  .check label { text-transform: none; font-size: 15px; color: #111; letter-spacing: 0; }
+  button { width: 100%; padding: 14px; font-size: 16px; font-weight: 600; background: #111; color: white; border: none; border-radius: 12px; margin-top: 8px; cursor: pointer; }
+  button:disabled { background: #999; }
+  .status { margin-top: 14px; padding: 12px 14px; border-radius: 10px; font-size: 15px; display: none; }
+  .ok { background: #e6f9ee; color: #1a7a3f; }
+  .err { background: #fdecea; color: #c0392b; }
+</style>
+</head>
+<body>
+<h1>Add Club — Queer Sports NYC</h1>
+<div class="field"><label>Name</label><input id="name" type="text" placeholder="Club name" /></div>
+<div class="row">
+  <div class="field"><label>Sport</label><select id="sport"><option>Soccer</option><option>Basketball</option><option>Running</option><option>Tennis / Pickleball</option><option>Biking</option><option>Football / Rugby</option><option>Volleyball</option><option>Cup Pong &amp; Pool</option><option>Roller Derby</option><option>Climbing</option><option>Archery</option><option>Softball</option><option>Hockey</option><option>Boxing</option><option>Women's Sports Bars</option></select></div>
+  <div class="field"><label>Type</label><select id="type"><option>Club</option><option>League</option><option>Seasonal Club</option><option>Bar</option><option>Classes</option><option>Open Gym</option><option>Moving Bar / Watch Parties</option></select></div>
+</div>
+<div class="row">
+  <div class="field"><label>Cost</label><input id="cost" type="text" placeholder="e.g. Free" /></div>
+  <div class="field"><label>Days</label><input id="days" type="text" placeholder="e.g. Saturdays" /></div>
+</div>
+<div class="field"><label>Instagram</label><input id="instagram" type="text" placeholder="handle (no @)" /></div>
+<div class="field"><label>Notes</label><textarea id="notes" placeholder="Any extra info"></textarea></div>
+<div class="field check"><input type="checkbox" id="queer" checked /><label for="queer">Queer</label></div>
+<button id="btn" onclick="push()">Push to queersportsnyc.com</button>
+<div class="status" id="status"></div>
+<script>
+const params = new URLSearchParams(window.location.search);
+if (params.get('name')) {
+  ['name','sport','type','cost','days','instagram','notes'].forEach(k => { if(params.get(k)) document.getElementById(k).value = params.get(k); });
+  document.getElementById('queer').checked = params.get('queer') !== 'false';
+}
+async function push() {
+  const btn = document.getElementById('btn');
+  const status = document.getElementById('status');
+  btn.disabled = true; btn.textContent = 'Pushing...'; status.style.display = 'none';
+  const club = { name: document.getElementById('name').value.trim(), sport: document.getElementById('sport').value, type: document.getElementById('type').value, cost: document.getElementById('cost').value.trim(), days: document.getElementById('days').value.trim(), instagram: document.getElementById('instagram').value.trim(), queer: document.getElementById('queer').checked, notes: document.getElementById('notes').value.trim() };
+  try {
+    const res = await fetch('https://queer-sports-nyc.thearanelli.workers.dev/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(club) });
+    const data = await res.json();
+    if (data.success) { status.className = 'status ok'; status.textContent = '\u2713 "' + data.name + '" added as #' + data.id; ['name','notes','cost','days','instagram'].forEach(k => document.getElementById(k).value = ''); btn.textContent = 'Push to queersportsnyc.com'; btn.disabled = false; }
+    else { throw new Error(JSON.stringify(data.error)); }
+  } catch(e) { status.className = 'status err'; status.textContent = 'Error: ' + e.message; btn.textContent = 'Push to queersportsnyc.com'; btn.disabled = false; }
+  status.style.display = 'block';
+}
+</script>
+</body>
+</html>
