@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Queer Girl Sports NYC — Directory of inclusive sports clubs, leagues, and bars</title>
+  <title>Queer Girl Sports NYC â Directory of inclusive sports clubs, leagues, and bars</title>
   <meta name="description" content="Find queer and women-focused sports clubs, leagues, and bars in New York City." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@
       100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* ── HEADER ── */
+    /* ââ HEADER ââ */
     header {
       padding: 3.5rem 1.5rem 3rem;
       text-align: center;
@@ -158,7 +158,7 @@
       color: var(--black);
     }
 
-    /* ── FADE TRANSITION ── */
+    /* ââ FADE TRANSITION ââ */
     .drip {
       width: 100%;
       height: 40px;
@@ -179,14 +179,14 @@
       animation: titlePop 0.6s 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
     }
 
-    /* ── MAIN ── */
+    /* ââ MAIN ââ */
     main {
       padding: 2rem 1.25rem;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    /* ── SPORT SECTIONS ── */
+    /* ââ SPORT SECTIONS ââ */
     .sport-section {
       margin-bottom: 3rem;
       scroll-margin-top: 1rem;
@@ -222,7 +222,7 @@
       border-radius: 1px;
     }
 
-    /* ── CLUB LIST — stacked on mobile ── */
+    /* ââ CLUB LIST â stacked on mobile ââ */
     .clubs-grid {
       display: flex;
       flex-direction: column;
@@ -268,7 +268,7 @@
     }
     .club-card:active .ig-arrow { color: var(--blush); }
 
-    /* ── TAGS ── */
+    /* ââ TAGS ââ */
     .club-meta {
       display: flex;
       flex-wrap: wrap;
@@ -306,7 +306,7 @@
     .club-days  { font-size: 0.78rem; color: var(--muted); }
     .club-notes { font-size: 0.7rem;  color: rgba(255,255,255,0.28); }
 
-    /* ── SUBMIT ── */
+    /* ââ SUBMIT ââ */
     .submit-section {
       margin-top: 1rem;
       padding: 2rem 1.25rem;
@@ -352,7 +352,7 @@
     .submit-btn:active { opacity: 0.8; }
     .submit-btn:active { background: var(--blush); color: var(--black); }
 
-    /* ── FOOTER ── */
+    /* ââ FOOTER ââ */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.25rem;
@@ -363,7 +363,7 @@
     }
     footer a { color: var(--muted); text-decoration: none; }
 
-    /* ── DESKTOP: wider cards grid ── */
+    /* ââ DESKTOP: wider cards grid ââ */
     @media (min-width: 640px) {
       main { padding: 2.5rem 2rem; }
       .sport-nav-wrap { padding: 2rem 2rem 0; }
@@ -382,7 +382,7 @@
       .club-card:hover .club-name { color: var(--blush); }
     }
 
-    /* ── SPLASH SCREEN ── */
+    /* ââ SPLASH SCREEN ââ */
     #splash {
       position: fixed;
       inset: 0;
@@ -417,7 +417,7 @@
 <header>
   <canvas id="headerCanvas"></canvas>
   <p class="tagline">NYC Sports For Queer Women</p>
-  <p class="subline">WTNB+ clubs · leagues · bars</p>
+  <p class="subline">WTNB+ clubs Â· leagues Â· bars</p>
   <a class="ig-link" href="https://www.instagram.com/queergirlsports/" target="_blank" rel="noopener">
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Follow on Instagram
   </a>
@@ -438,13 +438,13 @@
 </main>
 
 <footer>
-  <p>© Queer Girl Sports NYC · <a href="https://www.instagram.com/queergirlsports/">@queergirlsports.nyc</a></p>
+  <p>Â© Queer Girl Sports NYC Â· <a href="https://www.instagram.com/queergirlsports/">@queergirlsports.nyc</a></p>
 </footer>
 
 <script>
 
 
-  // ── SPLASH ──
+  // ââ SPLASH ââ
   const splash = document.getElementById('splash');
   const minShow = 800; // ms minimum splash time
   const start = Date.now();
@@ -454,7 +454,7 @@
     setTimeout(() => splash.classList.add('hidden'), delay);
   });
 
-  // ── ANIMATED HEADER CANVAS: TIE DYE ──
+  // ââ ANIMATED HEADER CANVAS: TIE DYE ââ
   (function() {
     const canvas = document.getElementById('headerCanvas');
     const ctx = canvas.getContext('2d');
@@ -527,7 +527,12 @@
     requestAnimationFrame(draw);
   })();
 
-  const clubs = [{"id":1,"name":"Footy With Friends","sport":"Soccer","type":"Club","cost":"Free","days":"Tues / Thurs","instagram":"https://www.instagram.com/footy.withfriends/","queer":true,"notes":""},{"id":2,"name":"Ladies Village Soccer","sport":"Soccer","type":"Club","cost":"Free","days":"Sat","instagram":"https://www.instagram.com/ladiesvillagesoccer/","queer":true,"notes":""},{"id":3,"name":"Queer Soccer League","sport":"Soccer","type":"Club","cost":"$","days":"Fri","instagram":"https://www.instagram.com/queersoccerleague/","queer":true,"notes":""},{"id":4,"name":"NYC Footy Flip League","sport":"Soccer","type":"League","cost":"$","days":"Dates vary","instagram":"https://www.instagram.com/nycfootyflipleague/","queer":false,"notes":"Female majority, not explicitly queer"},{"id":5,"name":"Fruit Hoops NYC","sport":"Basketball","type":"Club","cost":"Free","days":"Sun","instagram":"https://www.instagram.com/froothoopsnyc/","queer":true,"notes":""},{"id":6,"name":"Pride Basketball","sport":"Basketball","type":"League","cost":"$","days":"Sun","instagram":"https://www.instagram.com/pridebasketballleaguenyc/","queer":true,"notes":""},{"id":7,"name":"Basketdolls NYC","sport":"Basketball","type":"Club","cost":"Free","days":"Sat / Sun","instagram":"https://www.instagram.com/basketdolls/","queer":true,"notes":"Trans+"},{"id":8,"name":"NY Urban","sport":"Basketball","type":"League","cost":"$","days":"Dates vary","instagram":"https://www.instagram.com/nyurban/","queer":false,"notes":"Not explicitly queer"},{"id":9,"name":"BCPC","sport":"Basketball","type":"Open Gym","cost":"Free","days":"Mon / Sat","instagram":"https://www.lgbtbrooklyn.org/fitness","queer":true,"notes":""},{"id":10,"name":"Dyke Running NYC","sport":"Running","type":"Club","cost":"Free","days":"Mon / Wed / Fri","instagram":"https://www.instagram.com/dykerunnyc/","queer":true,"notes":""},{"id":11,"name":"Queer Feet NYC","sport":"Running","type":"Club","cost":"Free","days":"Wed / Sat","instagram":"https://www.instagram.com/queerfeetnyc/","queer":true,"notes":""},{"id":12,"name":"Queer NYC Pickleball","sport":"Tennis / Pickleball","type":"Seasonal Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/queernycpickleball/","queer":true,"notes":""},{"id":13,"name":"Big Apple Rec Sports","sport":"Tennis / Pickleball","type":"League","cost":"$","days":"Dates vary","instagram":"https://www.instagram.com/bigapplerecsports/","queer":true,"notes":""},{"id":14,"name":"Queer Tennis","sport":"Tennis / Pickleball","type":"Seasonal Club","cost":"Varies","days":"Dates vary","instagram":"https://www.instagram.com/queer4tennis/","queer":true,"notes":""},{"id":15,"name":"Queer Joy Rides","sport":"Biking","type":"Club","cost":"Free","days":"Tue","instagram":"https://www.instagram.com/queer.joyride/","queer":true,"notes":""},{"id":16,"name":"Nightcap Brooklyn","sport":"Biking","type":"Club","cost":"Free","days":"Mon","instagram":"https://www.instagram.com/nightcap_brooklyn/","queer":true,"notes":""},{"id":17,"name":"Lesbian Bike Clurb","sport":"Biking","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/lesbianbikeclurb","queer":true,"notes":""},{"id":18,"name":"The L League","sport":"Football / Rugby","type":"Seasonal Club","cost":"Free","days":"Mon","instagram":"https://www.instagram.com/thelleaguenyc/","queer":true,"notes":""},{"id":19,"name":"NY Gay Football","sport":"Football / Rugby","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/nygfl_wplus/","queer":true,"notes":""},{"id":20,"name":"Queens Rugby Women","sport":"Football / Rugby","type":"League","cost":"","days":"Tues / Thurs","instagram":"https://www.instagram.com/queensrugbywomens/","queer":false,"notes":"Not explicitly queer"},{"id":21,"name":"Spykes NYC","sport":"Volleyball","type":"Club","cost":"$","days":"Sun","instagram":"https://www.instagram.com/spykesnyc/","queer":true,"notes":""},{"id":22,"name":"NY Urban Volleyball","sport":"Volleyball","type":"League","cost":"$","days":"Dates vary","instagram":"https://www.instagram.com/nyurban/","queer":false,"notes":"Not explicitly queer"},{"id":23,"name":"Sapphix Hits","sport":"Volleyball","type":"Club","cost":"$","days":"Dates vary","instagram":"https://www.instagram.com/sapphix.hits/","queer":true,"notes":""},{"id":24,"name":"Queer Pong BK","sport":"Cup Pong & Pool","type":"League","cost":"$","days":"Thurs","instagram":"https://www.instagram.com/queerpongbk/","queer":true,"notes":""},{"id":25,"name":"Queer Pool Hotties","sport":"Cup Pong & Pool","type":"Club","cost":"Free","days":"Monthly","instagram":"https://www.instagram.com/queerpoolhotties/","queer":true,"notes":""},{"id":26,"name":"Frog Wine Bar Queer Pool","sport":"Cup Pong & Pool","type":"Club","cost":"Free","days":"Weds","instagram":"https://www.instagram.com/frogwinebar/","queer":true,"notes":""},{"id":27,"name":"Gotham Roller Derby","sport":"Roller Derby","type":"League","cost":"","days":"Dates vary","instagram":"https://www.instagram.com/gothamderby","queer":true,"notes":""},{"id":28,"name":"Crux Climbing","sport":"Climbing","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/climbcrux/","queer":true,"notes":"LGBTQIA+"},{"id":29,"name":"Queer Archery","sport":"Archery","type":"Club","cost":"Free","days":"Bi-monthly","instagram":"https://www.instagram.com/queerarchery/","queer":true,"notes":"LGBTQIA+"},{"id":30,"name":"BASL Softball","sport":"Softball","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/baslwtnb/","queer":true,"notes":""},{"id":31,"name":"Resting Pitch Face","sport":"Softball","type":"Club","cost":"","days":"","instagram":"https://www.instagram.com/resting_pitchface/","queer":true,"notes":""},{"id":32,"name":"BK Softball Collective","sport":"Softball","type":"League","cost":"$","days":"Sat","instagram":"https://www.instagram.com/bksoftballcollective/","queer":true,"notes":""},{"id":33,"name":"Brooklyn Bladers","sport":"Hockey","type":"Club","cost":"Free","days":"Dates vary","instagram":"https://www.instagram.com/brooklynbladers/","queer":true,"notes":""},{"id":34,"name":"Outbox Gym","sport":"Boxing","type":"Classes","cost":"$","days":"","instagram":"https://www.instagram.com/outboxnyc/","queer":true,"notes":"LGBTQIA women's"},{"id":35,"name":"Athena Keke's","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/athenakekesnyc/","queer":true,"notes":"Brooklyn \u2014 Clinton Hill"},{"id":36,"name":"Wilkas","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/wilkasnyc/","queer":true,"notes":"Manhattan \u2014 LES"},{"id":37,"name":"Blazers Sports Bar","sport":"Women's Sports Bars","type":"Bar","cost":"","days":"","instagram":"https://www.instagram.com/blazerssportsbar/","queer":true,"notes":"Brooklyn \u2014 Williamsburg"},{"id":38,"name":"Women's Sports Rally","sport":"Women's Sports Bars","type":"Moving Bar / Watch Parties","cost":"","days":"","instagram":"https://www.instagram.com/womxnsportsrally/","queer":true,"notes":""}];
+  fetch('clubs.json')
+    .then(r => r.json())
+    .then(clubs => {
+      buildSportNav(clubs);
+      render(clubs);
+    });
 
   function typeTagClass(type) {
     const t = type.toLowerCase();
@@ -540,7 +545,7 @@
     return 'tag-other';
   }
 
-  function buildSportNav() {
+  function buildSportNav(clubs) {
     const sports = [...new Set(clubs.map(c => c.sport))].sort();
     const nav = document.getElementById('sportNav');
     sports.forEach(sport => {
@@ -557,7 +562,7 @@
     });
   }
 
-  function render() {
+  function render(clubs) {
     const grouped = {};
     clubs.forEach(c => {
       if (!grouped[c.sport]) grouped[c.sport] = [];
@@ -600,8 +605,8 @@
     }).join('');
   }
 
-  buildSportNav();
-  render();
+  
+  
 </script>
 </body>
 </html>
