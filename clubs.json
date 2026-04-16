@@ -100,11 +100,11 @@
   },
   {
     "id": 10,
-    "name": "Dyke Running NYC",
+    "name": "Dyke Run Club",
     "sport": "Running",
     "type": "Club",
     "cost": "Free",
-    "days": "Mon / Wed / Fri",
+    "days": "Mon / Wed / Sun",
     "instagram": "https://www.instagram.com/dykerunnyc/",
     "queer": true,
     "notes": ""
@@ -382,7 +382,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/athenakekesnyc/",
     "queer": true,
-    "notes": "Brooklyn — Clinton Hill"
+    "notes": "Brooklyn â Clinton Hill"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/wilkasnyc/",
     "queer": true,
-    "notes": "Manhattan — LES"
+    "notes": "Manhattan â LES"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/blazerssportsbar/",
     "queer": true,
-    "notes": "Brooklyn — Williamsburg"
+    "notes": "Brooklyn â Williamsburg"
   },
   {
     "id": 38,
