@@ -382,7 +382,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/athenakekesnyc/",
     "queer": true,
-    "notes": "Brooklyn â Clinton Hill"
+    "notes": "Brooklyn Ã¢ÂÂ Clinton Hill"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/wilkasnyc/",
     "queer": true,
-    "notes": "Manhattan â LES"
+    "notes": "Manhattan Ã¢ÂÂ LES"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/blazerssportsbar/",
     "queer": true,
-    "notes": "Brooklyn â Williamsburg"
+    "notes": "Brooklyn Ã¢ÂÂ Williamsburg"
   },
   {
     "id": 38,
@@ -427,5 +427,16 @@
     "instagram": "https://www.instagram.com/tranfl.nyc/",
     "queer": true,
     "notes": "Trans-focused"
+  },
+  {
+    "id": 40,
+    "name": "Queers Run Brooklyn",
+    "sport": "Running",
+    "type": "Club",
+    "cost": "free",
+    "days": "mon,tues,thurs,fri,sat,sun",
+    "instagram": "https://www.instagram.com/queersrunbrooklyn?igsh=Z3VsYnJydXd6cnc4",
+    "queer": true,
+    "notes": ""
   }
 ]
