@@ -382,7 +382,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/athenakekesnyc/",
     "queer": true,
-    "notes": "Brooklyn Ã¢ÂÂ Clinton Hill"
+    "notes": "Brooklyn ÃÂ¢ÃÂÃÂ Clinton Hill"
   },
   {
     "id": 36,
@@ -393,7 +393,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/wilkasnyc/",
     "queer": true,
-    "notes": "Manhattan Ã¢ÂÂ LES"
+    "notes": "Manhattan ÃÂ¢ÃÂÃÂ LES"
   },
   {
     "id": 37,
@@ -404,7 +404,7 @@
     "days": "",
     "instagram": "https://www.instagram.com/blazerssportsbar/",
     "queer": true,
-    "notes": "Brooklyn Ã¢ÂÂ Williamsburg"
+    "notes": "Brooklyn ÃÂ¢ÃÂÃÂ Williamsburg"
   },
   {
     "id": 38,
@@ -436,6 +436,17 @@
     "cost": "free",
     "days": "mon,tues,thurs,fri,sat,sun",
     "instagram": "https://www.instagram.com/queersrunbrooklyn?igsh=Z3VsYnJydXd6cnc4",
+    "queer": true,
+    "notes": ""
+  },
+  {
+    "id": 41,
+    "name": "Queer Flips",
+    "sport": "Gymnastics",
+    "type": "Club",
+    "cost": "$",
+    "days": "dates vary",
+    "instagram": "https://www.instagram.com/queerflipsnyc?igsh=MWJ1bGsxN2JlNHFwZQ==",
     "queer": true,
     "notes": ""
   }
