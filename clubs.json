@@ -449,5 +449,16 @@
     "instagram": "https://www.instagram.com/queerflipsnyc?igsh=MWJ1bGsxN2JlNHFwZQ==",
     "queer": true,
     "notes": ""
+  },
+  {
+    "id": 42,
+    "name": "NY Gay Corn Hole League",
+    "sport": "Soccer",
+    "type": "League",
+    "cost": "$",
+    "days": "Thursdays",
+    "instagram": "https://www.instagram.com/nygcl",
+    "queer": true,
+    "notes": ""
   }
 ]
