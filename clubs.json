@@ -460,5 +460,16 @@
     "instagram": "https://www.instagram.com/nygcl",
     "queer": true,
     "notes": ""
+  },
+  {
+    "id": 43,
+    "name": "Girls Bike NYC",
+    "sport": "Biking",
+    "type": "Club",
+    "cost": "free",
+    "days": "weekly",
+    "instagram": "https://www.instagram.com/girlsbikenyc?igsh=MTEzdDJ5enQ3ajVhYQ==",
+    "queer": true,
+    "notes": "not explicitly queer"
   }
 ]
