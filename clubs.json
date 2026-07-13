@@ -482,5 +482,16 @@
     "instagram": "https://www.instagram.com/soccerloversofbushwick",
     "queer": true,
     "notes": ""
+  },
+  {
+    "id": 45,
+    "name": "Queer Fight Club",
+    "sport": "Boxing",
+    "type": "Club",
+    "cost": "$",
+    "days": "dates vary",
+    "instagram": "https://www.instagram.com/queerfightclub.nyc",
+    "queer": true,
+    "notes": ""
   }
 ]
