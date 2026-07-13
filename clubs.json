@@ -493,5 +493,16 @@
     "instagram": "https://www.instagram.com/queerfightclub.nyc",
     "queer": true,
     "notes": ""
+  },
+  {
+    "id": 46,
+    "name": "All.ways Cycling Club",
+    "sport": "Biking",
+    "type": "Club",
+    "cost": "free",
+    "days": "dates vary",
+    "instagram": "https://www.instagram.com/all.ways.cc",
+    "queer": true,
+    "notes": "wtfnb racing & dev team"
   }
 ]
