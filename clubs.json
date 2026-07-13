@@ -471,5 +471,16 @@
     "instagram": "https://www.instagram.com/girlsbikenyc?igsh=MTEzdDJ5enQ3ajVhYQ==",
     "queer": true,
     "notes": "not explicitly queer"
+  },
+  {
+    "id": 44,
+    "name": "Soccer Lovers of Bushwick",
+    "sport": "Soccer",
+    "type": "Club",
+    "cost": "free",
+    "days": "mondays",
+    "instagram": "https://www.instagram.com/soccerloversofbushwick",
+    "queer": true,
+    "notes": ""
   }
 ]
